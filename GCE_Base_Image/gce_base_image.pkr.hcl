@@ -12,14 +12,15 @@ source "googlecompute" "gce_base" {
   image_name    = "gce-base-{{timestamp}}"
   network       = "default"
   use_os_login  = true
+}
 
+build {
+  sources = [
+    "sources.googlecompute.gce_base"
+    ]
   provisioner "shell" {
     inline = [
       "touch /tmp/bmw325i"
     ]
   }
-}
-
-build {
-  sources = ["sources.googlecompute.gce_base"]
 }
