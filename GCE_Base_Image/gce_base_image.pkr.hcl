@@ -1,8 +1,7 @@
 # GCE VM Golden Image
 # Ensure a baked golden image of a base GCE Image including monitoring
 source "googlecompute" "gce_base" {
-  #project_id              = "smc-bakery"
-  project_id          = "simplifymycloud-dev"
+  project_id          = "smc-bakery"
   source_image_family = "rocky-linux-8"
   source_image_project_id = [
     "rocky-linux-cloud"
