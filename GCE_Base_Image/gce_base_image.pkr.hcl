@@ -9,9 +9,15 @@ source "googlecompute" "gce_base" {
   ssh_username  = "packer"
   zone          = "us-west1-c"
   image_family  = "smc-gce-base"
-  instance_name = "gce-base-{{uuid}}"
+  image_name    = "gce-base-{{timestamp}}"
   network       = "default"
   use_os_login  = true
+
+  provisioner "shell" {
+    inline = [
+      "touch /tmp/bmw325i"
+    ]
+  }
 }
 
 build {
